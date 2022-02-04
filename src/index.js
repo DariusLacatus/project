@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import AgGrid from './AgGrid'
 import MyForm from './Form';
 import './index.css'
+import { AgGridReact } from '@ag-grid-community/react';
 
 
 const store = createStore(allReducer,
