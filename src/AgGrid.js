@@ -6,6 +6,7 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 function AgGrid() {
   const [rowData, setRowData] = useState([])
+  const [column, setColumn] = useState([])
 
   const columnDefs = [
     { field: "name" },
@@ -33,10 +34,11 @@ function AgGrid() {
 
   const onGridReady = (params) => {
     console.log("grid is ready");
-    fetch("http://hp-api.herokuapp.com/api/characters/students")
+    fetch("https://www.ag-grid.com/example-assets/olympic-winners.json")
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log(resp);
+        console.log(Object.keys(resp[0]).map(col => ({field: col})),);
+        setColumn(Object.keys(resp[0]).map(col=> ({field: col})));
         params.api.applyTransaction({ add: resp });
       });
   };
@@ -48,7 +50,7 @@ function AgGrid() {
         <AgGridReact
         sideBar={['filters']}
         onGridReady={onGridReady}
-          columnDefs={columnDefs}
+          columnDefs={column}
            rowData={rowData}
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}

@@ -13,7 +13,7 @@ function App() {
     
 <button onClick={() => dispatch(increment())}>+</button>
 <button onClick={() => dispatch(decrement())}>-</button>
-     <h3>Redux tutorial</h3>
+     <h3>Redux added</h3>
     </div>
   );
 }
