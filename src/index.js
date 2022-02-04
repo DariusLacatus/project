@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
 import allReducer from './reducers'
 import { Provider } from 'react-redux'
+import AgGrid from './AgGrid'
+import MyForm from './Form';
+import './index.css'
 
 
 const store = createStore(allReducer,
@@ -19,6 +22,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
     <App />
+    <AgGrid />
+    <MyForm />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
